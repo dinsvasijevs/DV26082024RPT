@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { Todo, Comment } from '../types';
 import * as api from '../utils/api';
 
@@ -29,37 +29,43 @@ export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children
         api.fetchTodos().then(setTodos);
     }, []);
 
-    const addTodo = async (todo: Omit<Todo, 'id'>) => {
+    const addTodo = useCallback(async (todo: Omit<Todo, 'id'>) => {
         const newTodo = await api.createTodo(todo);
-        setTodos([...todos, newTodo]);
-    };
+        setTodos(prevTodos => [...prevTodos, newTodo]);
+    }, []);
 
-    const updateTodo = async (id: number, todo: Partial<Todo>) => {
+    const updateTodo = useCallback(async (id: number, todo: Partial<Todo>) => {
         const updatedTodo = await api.updateTodo(id, todo);
-        setTodos(todos.map(t => t.id === id ? updatedTodo : t));
+        setTodos(prevTodos => prevTodos.map(t => t.id === id ? updatedTodo : t));
         return updatedTodo;
-    };
+    }, []);
 
-    const deleteTodo = async (id: number) => {
+    const deleteTodo = useCallback(async (id: number) => {
         await api.deleteTodo(id);
-        setTodos(todos.filter(t => t.id !== id));
-    };
+        setTodos(prevTodos => prevTodos.filter(t => t.id !== id));
+    }, []);
 
-    const addComment = async (comment: Omit<Comment, 'id'>): Promise<Comment> => {
+    const addComment = useCallback(async (comment: Omit<Comment, 'id'>): Promise<Comment> => {
         return await api.createComment(comment);
-    };
+    }, []);
 
-    const updateComment = async (id: number, comment: Partial<Comment>): Promise<Comment> => {
+    const updateComment = useCallback(async (id: number, comment: Partial<Comment>): Promise<Comment> => {
         return await api.updateComment(id, comment);
-    };
+    }, []);
 
-    const deleteComment = async (id: number): Promise<void> => {
+    const deleteComment = useCallback(async (id: number): Promise<void> => {
         await api.deleteComment(id);
+    }, []);
+
+    const value = {
+        todos,
+        addTodo,
+        updateTodo,
+        deleteTodo,
+        addComment,
+        updateComment,
+        deleteComment
     };
 
-    return (
-        <TodoContext.Provider value={{ todos, addTodo, updateTodo, deleteTodo, addComment, updateComment, deleteComment }}>
-            {children}
-        </TodoContext.Provider>
-    );
+    return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 };
