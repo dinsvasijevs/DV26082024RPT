@@ -1,17 +1,50 @@
 {
   "todos": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Example Todo",
       "content": "This is an example todo item",
+      "completed": true
+    },
+    {
+      "id": "20b9",
+      "title": "JavaScript basics",
+      "content": "JavaScript is a programming language that adds interactivity to your website. This happens in games, in the behavior of responses when buttons are pressed or with data entry on forms; with dynamic styling; with animation, etc. This article helps you get started with JavaScript and furthers your understanding of what is possible.\n\nWhat is JavaScript?\nJavaScript is a powerful programming language that can add interactivity to a website. It was invented by Brendan Eich.\n\nJavaScript is versatile and beginner-friendly. With more experience, you'll be able to create games, animated 2D and 3D graphics, comprehensive database-driven apps, and much more!\n\nJavaScript itself is relatively compact, yet very flexible. Developers have written a variety of tools on top of the core JavaScript language, unlocking a vast amount of functionality with minimum effort. These include:\n\nBrowser Application Programming Interfaces (APIs) built into web browsers, providing functionality such as dynamically creating HTML and setting CSS styles; collecting and manipulating a video stream from a user's webcam, or generating 3D graphics and audio samples.\nThird-party APIs that allow developers to incorporate functionality in sites from other content providers, such as Disqus or Facebook.\nThird-party frameworks and libraries that you can apply to HTML to accelerate the work of building sites and applications.",
       "completed": false
+    },
+    {
+      "id": "931b",
+      "title": "Try app",
+      "content": "Trying new local llm api to connect it to aider ",
+      "completed": false
+    },
+    {
+      "id": "7271",
+      "title": "Try chess",
+      "content": "try chess",
+      "completed": true
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "todoId": 1,
-      "text": "This is an example comment"
+      "text": "i tryed to edit this comment."
+    },
+    {
+      "id": "fed3",
+      "todoId": "1",
+      "text": "It is editing?"
+    },
+    {
+      "id": "e483",
+      "todoId": "7271",
+      "text": "i dont belive you"
+    },
+    {
+      "id": "2104",
+      "todoId": "7271",
+      "text": "says who?"
     }
   ],
   "scripts": []
