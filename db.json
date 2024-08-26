@@ -1,7 +1,18 @@
 {
-  "todos": [],
-  "comments": [],
-  "scripts": {
-    "server": "json-server --watch db.json --port 3004"
-  }
+  "todos": [
+    {
+      "id": 1,
+      "title": "Example Todo",
+      "content": "This is an example todo item",
+      "completed": false
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "todoId": 1,
+      "text": "This is an example comment"
+    }
+  ],
+  "scripts": []
 }
