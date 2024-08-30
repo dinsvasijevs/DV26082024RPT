@@ -1,0 +1,11 @@
+{
+  "port": 3004,
+  "watch": true,
+  "delay": 0,
+  "quiet": false,
+  "bodyParser": {
+    "json": {
+      "limit": "10mb"
+    }
+  }
+}
