@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTodoContext } from '../contexts/TodoContext';
+import {useTodoContext} from '../contexts/TodoContext';
 import TodoItem from './TodoItem';
 
 const truncateText = (text: string, maxLength: number) => {
@@ -8,7 +8,7 @@ const truncateText = (text: string, maxLength: number) => {
 };
 
 const TodoList: React.FC = () => {
-    const { todos } = useTodoContext();
+    const {todos} = useTodoContext();
 
     return (
         <div className="space-y-4">

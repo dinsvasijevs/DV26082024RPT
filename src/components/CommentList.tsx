@@ -1,7 +1,7 @@
 import React from 'react';
-import { Comment } from '../types';
+import {Comment} from '../types';
 import CommentItem from './CommentItem';
-import { useTodoContext } from '../contexts/TodoContext';
+import {useTodoContext} from '../contexts/TodoContext';
 
 interface Props {
     comments: Comment[];
@@ -9,11 +9,11 @@ interface Props {
     todoId: number;
 }
 
-const CommentList: React.FC<Props> = ({ comments, setComments, todoId }) => {
-    const { updateComment, deleteComment } = useTodoContext();
+const CommentList: React.FC<Props> = ({comments, setComments}) => {
+    const {updateComment, deleteComment} = useTodoContext();
 
     const handleUpdateComment = async (id: number, text: string) => {
-        const updatedComment = await updateComment(id, { text });
+        const updatedComment = await updateComment(id, {text});
         setComments(comments.map(c => c.id === id ? updatedComment : c));
     };
 

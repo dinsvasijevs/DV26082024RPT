@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useTodoContext } from '../contexts/TodoContext';
-import { Comment } from '../types';
+import React, {useState} from 'react';
+import {useTodoContext} from '../contexts/TodoContext';
+import {Comment} from '../types';
 
 interface Props {
     todoId: number;
     setComments: React.Dispatch<React.SetStateAction<Comment[]>>;
 }
 
-const AddCommentForm: React.FC<Props> = ({ todoId, setComments }) => {
+const AddCommentForm: React.FC<Props> = ({todoId, setComments}) => {
     const [text, setText] = useState('');
-    const { addComment } = useTodoContext();
+    const {addComment} = useTodoContext();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (text.trim()) {
-            const newComment = await addComment({ todoId, text });
+            const newComment = await addComment({todoId, text});
             setComments(prev => [...prev, newComment]);
             setText('');
         }

@@ -1,5 +1,5 @@
-import axios, { AxiosError } from 'axios';
-import { Todo, Comment } from '../types';
+import axios, {AxiosError} from 'axios';
+import {Comment, Todo} from '../types';
 
 const API_URL = 'http://localhost:3004';
 
@@ -8,7 +8,7 @@ const api = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
-    timeout: 30000, // 30 seconds timeout
+    timeout: 30000,
 });
 
 const handleApiError = (error: unknown) => {

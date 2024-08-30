@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Comment } from '../types';
+import React, {useState} from 'react';
+import {Comment} from '../types';
 
 interface Props {
     comment: Comment;
@@ -7,7 +7,7 @@ interface Props {
     onDelete: (id: number) => void;
 }
 
-const CommentItem: React.FC<Props> = ({ comment, onUpdate, onDelete }) => {
+const CommentItem: React.FC<Props> = ({comment, onUpdate, onDelete}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedText, setEditedText] = useState(comment.text);
 
@@ -26,8 +26,11 @@ const CommentItem: React.FC<Props> = ({ comment, onUpdate, onDelete }) => {
               className="w-full p-2 mb-2 border rounded"
               rows={3}
           />
-                    <button onClick={handleSave} className="bg-green-500 text-white px-3 py-1 rounded mr-2">Save</button>
-                    <button onClick={() => setIsEditing(false)} className="bg-gray-500 text-white px-3 py-1 rounded">Cancel</button>
+                    <button onClick={handleSave} className="bg-green-500 text-white px-3 py-1 rounded mr-2">Save
+                    </button>
+                    <button onClick={() => setIsEditing(false)}
+                            className="bg-gray-500 text-white px-3 py-1 rounded">Cancel
+                    </button>
                 </div>
             ) : (
                 <div>

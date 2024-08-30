@@ -5,8 +5,8 @@ import TodoList from '../components/TodoList';
 const HomePage: React.FC = () => {
     return (
         <div>
-            <AddTodoForm />
-            <TodoList />
+            <AddTodoForm/>
+            <TodoList/>
         </div>
     );
 };

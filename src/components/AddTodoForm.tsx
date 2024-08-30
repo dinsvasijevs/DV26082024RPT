@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useTodoContext } from '../contexts/TodoContext';
+import React, {useState} from 'react';
+import {useTodoContext} from '../contexts/TodoContext';
 
 const AddTodoForm: React.FC = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [error, setError] = useState<string | null>(null);
-    const { addTodo } = useTodoContext();
+    const {addTodo} = useTodoContext();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ const AddTodoForm: React.FC = () => {
         }
 
         try {
-            await addTodo({ title: title.trim(), content: content.trim(), completed: false });
+            await addTodo({title: title.trim(), content: content.trim(), completed: false});
             setTitle('');
             setContent('');
         } catch (err) {

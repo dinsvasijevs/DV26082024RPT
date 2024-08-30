@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { Todo, Comment } from '../types';
+import React, {createContext, useCallback, useContext, useEffect, useState} from 'react';
+import {Comment, Todo} from '../types';
 import * as api from '../utils/api';
 
 interface TodoContextType {
@@ -22,7 +22,7 @@ export const useTodoContext = () => {
     return context;
 };
 
-export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
     const [todos, setTodos] = useState<Todo[]>([]);
 
     useEffect(() => {
